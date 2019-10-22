@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-
 var fs = require('fs')
+const { checkAndPrintUsage } = require('./checkAndPrintUsage')
 
 const args = process.argv.slice(2)
 //TODO: use real path:
@@ -12,23 +12,14 @@ const argToEditorTheme = {
   "gr33n": "Cyberdyne 20XX"
 }
 
-const acceptableArgNames = Object.keys(argToEditorTheme)
-
-const printUsage = () => {
-  console.log("USAGE:") 
-  console.log("  change-zshrc <THEME_NAME>")
-  console.log("    Acceptable theme names:")
-  acceptableArgNames.forEach(name => {
-    console.log(`      ${name}`)
-  })
-}
-
-if(! acceptableArgNames.includes(args[0])) {
-  printUsage()
+themeFromArgs = checkAndPrintUsage(argToEditorTheme, args[0])
+if(! themeFromArgs){
+  console.log("    Error in change-vscode")
+  console.log(`    Args given: ${args}`)
   return
 } else {
-  themeFromArgs = args[0]
-}
+  newEditorTheme = argToEditorTheme[themeFromArgs]
+} 
 
 fs.readFile(settingsPath, 'utf8', (err,data) => {
   if (err) {
@@ -37,10 +28,14 @@ fs.readFile(settingsPath, 'utf8', (err,data) => {
 
   const result = data.replace(
     /"workbench.colorTheme": ".*"/g,
-    `"workbench.colorTheme": "${argToEditorTheme[themeFromArgs]}"`
+    `"workbench.colorTheme": "${newEditorTheme}"`
   );
 
   fs.writeFile(settingsPath, result, 'utf8', (err) => {
-     if (err) return console.log(err);
+     if (err) { 
+       return console.log(err) 
+     } else {
+       console.log(`▶️   VSCode editor theme changed to ${newEditorTheme}`)
+     }
   });
 });

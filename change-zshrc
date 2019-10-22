@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-var fs = require('fs')
+const fs = require('fs')
+const { checkAndPrintUsage } = require('./checkAndPrintUsage')
 
 const args = process.argv.slice(2)
 //TODO: use real path instead
@@ -12,22 +13,13 @@ const argToZshColor = {
   "gr33n": "GR33N"
 }
 
-const acceptableArgNames = Object.keys(argToZshColor)
-
-const printUsage = () => {
-  console.log("USAGE:") 
-  console.log("  change-zshrc <THEME_NAME>")
-  console.log("    Acceptable theme names:")
-  acceptableArgNames.forEach(name => {
-    console.log(`      ${name}`)
-  })
-}
-
-if(! acceptableArgNames.includes(args[0])) {
-  printUsage()
+themeFromArgs = checkAndPrintUsage(argToZshColor, args[0])
+if(! themeFromArgs){
+  console.log("    Error in change-zshrc")
+  console.log(`    Args given: ${args}`)
   return
 } else {
-  powerlineThemeFromArgs = args[0]
+  newPowerlineTheme = argToZshColor[themeFromArgs]
 }
 
 fs.readFile(zshrcPath, 'utf8', (err,data) => {
@@ -37,11 +29,15 @@ fs.readFile(zshrcPath, 'utf8', (err,data) => {
 
   const result = data.replace(
     /read -r MAIN_COLOR UNTRACKED_COLOR <<<\$\(echo \$.*_COLORS\)/g,
-    `read -r MAIN_COLOR UNTRACKED_COLOR <<<$(echo $${argToZshColor[powerlineThemeFromArgs]}_COLORS)`
+    `read -r MAIN_COLOR UNTRACKED_COLOR <<<$(echo $${newPowerlineTheme}_COLORS)`
   );
 
   fs.writeFile(zshrcPath, result, 'utf8', (err) => {
-     if (err) return console.log(err);
+     if (err){ 
+       return console.log(err) 
+     } else {
+       console.log(`▶️   ZSH Powerline9k changed to ${newPowerlineTheme}`)
+     }
   });
 });
 
