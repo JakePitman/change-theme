@@ -15,8 +15,8 @@ const argToZshColor = {
 
 themeFromArgs = checkAndPrintUsage(argToZshColor, args[0])
 if(! themeFromArgs){
-  console.log("    Error in change-zshrc")
-  console.log(`    Args given: ${args}`)
+  console.log("      Error in change-zshrc")
+  console.log(`      Args given: ${args}`)
   return
 } else {
   newPowerlineTheme = argToZshColor[themeFromArgs]

@@ -4,17 +4,17 @@ const { checkAndPrintUsage } = require('./checkAndPrintUsage')
 
 const args = process.argv.slice(2)
 //TODO: use real path:
-// /Users/jake.pitman/Library/Application Support/Code/User/settings.json
-const settingsPath = "../settings.json"
+// ~/.vimrc
+const settingsPath = "../.vimrc"
 
 const argToEditorTheme = {
-  "azure": "Activate AZURE protocol",
-  "gr33n": "Cyberdyne 20XX"
+  "azure": "midnightsun",
+  "gr33n": "gr33n"
 }
 
 themeFromArgs = checkAndPrintUsage(argToEditorTheme, args[0])
 if(! themeFromArgs){
-  console.log("      Error in change-vscode")
+  console.log("      Error in change-vim")
   console.log(`      Args given: ${args}`)
   return
 } else {
@@ -27,15 +27,15 @@ fs.readFile(settingsPath, 'utf8', (err,data) => {
   }
 
   const result = data.replace(
-    /"workbench.colorTheme": ".*"/g,
-    `"workbench.colorTheme": "${newEditorTheme}"`
+    /colorscheme .*/g,
+    `colorscheme ${newEditorTheme}`
   );
 
   fs.writeFile(settingsPath, result, 'utf8', (err) => {
      if (err) { 
        return console.log(err) 
      } else {
-       console.log(`▶️   VSCode editor theme changed to ${newEditorTheme}`)
+       console.log(`▶️   Vim editor theme changed to ${newEditorTheme}`)
      }
   });
 });
