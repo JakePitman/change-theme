@@ -3,7 +3,7 @@ var fs = require('fs')
 const { checkAndPrintUsage } = require('./checkAndPrintUsage')
 
 const args = process.argv.slice(2)
-const settingsPath = "../.vimrc"
+const settingsPath = "/Users/jake.pitman/.vimrc"
 
 const argToEditorTheme = {
   "azure": "midnightsun",

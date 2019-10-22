@@ -31,10 +31,10 @@ check_arg(){
 
 check_arg "$1"
 
-./change-zshrc "$1"
+~/change-theme/change-zshrc "$1"
 
-./change-vscode "$1"
+~/change-theme/change-vscode "$1"
 
-./change-vim "$1"
+~/change-theme/change-vim "$1"
 
-./change-iterm2 "$1"
+~/change-theme/change-iterm2 "$1"
