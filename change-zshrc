@@ -2,6 +2,8 @@
 var fs = require('fs')
 
 const args = process.argv.slice(2)
+//TODO: use real path instead
+//~/.zshrc
 const zshrcPath = "../.zshrc"
 
 //SOURCE OF TRUTH FOR ACCEPTABLE ARGS & POWERLINE THEME NAMES
