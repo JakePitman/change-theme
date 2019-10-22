@@ -5,27 +5,27 @@ const args = process.argv.slice(2)
 const zshrcPath = "../.zshrc"
 
 //SOURCE OF TRUTH FOR ACCEPTABLE ARGS & POWERLINE THEME NAMES
-const arg_to_zsh_color = {
+const argToZshColor = {
   "azure": "MIDNIGHT_SUN",
   "gr33n": "GR33N"
 }
 
-const acceptable_arg_names = Object.keys(arg_to_zsh_color)
+const acceptableArgNames = Object.keys(argToZshColor)
 
-const print_usage = () => {
+const printUsage = () => {
   console.log("USAGE:") 
   console.log("  change-zshrc <THEME_NAME>")
   console.log("    Acceptable theme names:")
-  acceptable_arg_names.forEach(name => {
+  acceptableArgNames.forEach(name => {
     console.log(`      ${name}`)
   })
 }
 
-if(! acceptable_arg_names.includes(args[0])) {
-  print_usage()
+if(! acceptableArgNames.includes(args[0])) {
+  printUsage()
   return
 } else {
-  powerline_theme_from_args = args[0]
+  powerlineThemeFromArgs = args[0]
 }
 
 fs.readFile(zshrcPath, 'utf8', (err,data) => {
@@ -35,7 +35,7 @@ fs.readFile(zshrcPath, 'utf8', (err,data) => {
 
   const result = data.replace(
     /read -r MAIN_COLOR UNTRACKED_COLOR <<<\$\(echo \$.*_COLORS\)/g,
-    `read -r MAIN_COLOR UNTRACKED_COLOR <<<$(echo $${arg_to_zsh_color[powerline_theme_from_args]}_COLORS)`
+    `read -r MAIN_COLOR UNTRACKED_COLOR <<<$(echo $${argToZshColor[powerlineThemeFromArgs]}_COLORS)`
   );
 
   fs.writeFile(zshrcPath, result, 'utf8', (err) => {
