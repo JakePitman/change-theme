@@ -35,3 +35,7 @@ check_arg "$1"
 #TODO source .zshrc
 
 ./change-vscode "$1"
+
+./change-vim "$1"
+
+./change-iterm2 "$1"
