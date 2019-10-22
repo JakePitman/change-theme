@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+var fs = require('fs')
+
+const args = process.argv.slice(2)
+const settingsPath = "../settings.json"
+
+const argToEditorTheme = {
+  "azure": "Activate AZURE protocol",
+  "gr33n": "Cyberdyne 20XX"
+}
+
+const acceptableArgNames = Object.keys(argToEditorTheme)
+
+const printUsage = () => {
+  console.log("USAGE:") 
+  console.log("  change-zshrc <THEME_NAME>")
+  console.log("    Acceptable theme names:")
+  acceptableArgNames.forEach(name => {
+    console.log(`      ${name}`)
+  })
+}
+
+if(! acceptableArgNames.includes(args[0])) {
+  printUsage()
+  return
+} else {
+  themeFromArgs = args[0]
+}
+
+fs.readFile(settingsPath, 'utf8', (err,data) => {
+  if (err) {
+    return console.log(err);
+  }
+
+  const result = data.replace(
+    /"workbench.colorTheme": ".*"/g,
+    `"workbench.colorTheme": "${argToEditorTheme[themeFromArgs]}"`
+  );
+
+  fs.writeFile(settingsPath, result, 'utf8', (err) => {
+     if (err) return console.log(err);
+  });
+});

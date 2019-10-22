@@ -32,3 +32,6 @@ check_arg(){
 check_arg "$1"
 
 ./change-zshrc "$1"
+#TODO source .zshrc
+
+./change-vscode "$1"
