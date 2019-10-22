@@ -3,9 +3,7 @@ var fs = require('fs')
 const { checkAndPrintUsage } = require('./checkAndPrintUsage')
 
 const args = process.argv.slice(2)
-//TODO: use real path:
-// /Users/jake.pitman/Library/Application Support/Code/User/settings.json
-const settingsPath = "../settings.json"
+const settingsPath = "../Library/Application Support/Code/User/settings.json"
 
 const argToEditorTheme = {
   "azure": "Activate AZURE protocol",

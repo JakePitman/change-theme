@@ -3,9 +3,8 @@ var fs = require('fs')
 const { checkAndPrintUsage } = require('./checkAndPrintUsage')
 
 const args = process.argv.slice(2)
-//TODO: use real path:
-// ~/iTerm2/com.googlecode.iterm2.plist
-const settingsPath = "../com.googlecode.iterm2.plist"
+const settingsPath = "../iTerm2/com.googlecode.iterm2.plist"
+
 
 const argToEditorTheme = {
   "azure": "B91304B8-6CF5-460E-936B-7CA5C60C0318",
