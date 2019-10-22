@@ -7,8 +7,8 @@ const settingsPath = "../iTerm2/com.googlecode.iterm2.plist"
 
 
 const argToEditorTheme = {
-  "azure": "B91304B8-6CF5-460E-936B-7CA5C60C0318",
-  "gr33n": "257C710D-BE93-4B41-BF9D-52DA5A0C6FA1"
+  "azure": "257C710D-BE93-4B41-BF9D-52DA5A0C6FA1",
+  "gr33n": "B91304B8-6CF5-460E-936B-7CA5C60C0318"
 }
 
 themeFromArgs = checkAndPrintUsage(argToEditorTheme, args[0])

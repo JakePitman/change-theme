@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 declare -a THEME_NAMES
 THEME_NAMES=(azure gr33n)
@@ -32,7 +32,6 @@ check_arg(){
 check_arg "$1"
 
 ./change-zshrc "$1"
-#TODO source .zshrc
 
 ./change-vscode "$1"
 
