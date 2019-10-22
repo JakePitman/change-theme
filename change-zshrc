@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+var fs = require('fs')
+const args = process.argv.slice(2)
+
+const print_usage = () => {
+  console.log("USAGE:") 
+  console.log("  change-theme <THEME_NAME>")
+  console.log("    Acceptable theme names:")
+  theme_names.forEach(name => {
+    console.log(`      ${name}`)
+  })
+}
+
+const theme_names = [
+  "azure",
+  "gr33n"
+]
+
+if(! theme_names.includes(args[0])) {
+  print_usage()
+  return
+} else {
+  theme_from_args = args[0]
+}
+
+const arg_to_zsh_color = {
+  "azure": "MIDNIGHT_SUN",
+  "gr33n": "GR33N"
+}
+
+fs.readFile(".zshrc", 'utf8', (err,data) => {
+  if (err) {
+    return console.log(err);
+  }
+
+  const result = data.replace(
+    /read -r MAIN_COLOR UNTRACKED_COLOR <<<\$\(echo \$.*_COLORS\)/g,
+    `read -r MAIN_COLOR UNTRACKED_COLOR <<<$(echo $${arg_to_zsh_color[theme_from_args]}_COLORS)`
+  );
+
+  fs.writeFile(".zshrc", result, 'utf8', (err) => {
+     if (err) return console.log(err);
+  });
+});
+
