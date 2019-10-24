@@ -1,26 +1,27 @@
 #!/usr/bin/env node
-const fs = require('fs')
-const { checkAndPrintUsage } = require('./checkAndPrintUsage')
+const fs = require("fs");
+const { checkAndPrintUsage } = require("./checkAndPrintUsage");
 
-const args = process.argv.slice(2)
-const zshrcPath = "/Users/jake.pitman/.zshrc"
+const args = process.argv.slice(2);
+const zshrcPath = "/Users/jake.pitman/.zshrc";
 
 //SOURCE OF TRUTH FOR ACCEPTABLE ARGS & POWERLINE THEME NAMES
 const argToZshColor = {
-  "azure": "MIDNIGHT_SUN",
-  "gr33n": "GR33N"
-}
+  azure: "MIDNIGHT_SUN",
+  gr33n: "GR33N",
+  izzet: "IZZET"
+};
 
-themeFromArgs = checkAndPrintUsage(argToZshColor, args[0])
-if(! themeFromArgs){
-  console.log("      Error in change-zshrc")
-  console.log(`      Args given: ${args}`)
-  return
+themeFromArgs = checkAndPrintUsage(argToZshColor, args[0]);
+if (!themeFromArgs) {
+  console.log("      Error in change-zshrc");
+  console.log(`      Args given: ${args}`);
+  return;
 } else {
-  newPowerlineTheme = argToZshColor[themeFromArgs]
+  newPowerlineTheme = argToZshColor[themeFromArgs];
 }
 
-fs.readFile(zshrcPath, 'utf8', (err,data) => {
+fs.readFile(zshrcPath, "utf8", (err, data) => {
   if (err) {
     return console.log(err);
   }
@@ -30,12 +31,11 @@ fs.readFile(zshrcPath, 'utf8', (err,data) => {
     `read -r MAIN_COLOR UNTRACKED_COLOR <<<$(echo $${newPowerlineTheme}_COLORS)`
   );
 
-  fs.writeFile(zshrcPath, result, 'utf8', (err) => {
-     if (err){ 
-       return console.log(err) 
-     } else {
-       console.log(`▶️   ZSH Powerline9k changed to ${newPowerlineTheme}`)
-     }
+  fs.writeFile(zshrcPath, result, "utf8", err => {
+    if (err) {
+      return console.log(err);
+    } else {
+      console.log(`▶️   ZSH Powerline9k changed to ${newPowerlineTheme}`);
+    }
   });
 });
-

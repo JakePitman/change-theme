@@ -1,7 +1,7 @@
 #!/bin/sh
 
 declare -a THEME_NAMES
-THEME_NAMES=(azure gr33n)
+THEME_NAMES=(azure gr33n izzet)
 
 print_usage(){
   echo "USAGE:"

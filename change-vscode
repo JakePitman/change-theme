@@ -1,25 +1,27 @@
 #!/usr/bin/env node
-var fs = require('fs')
-const { checkAndPrintUsage } = require('./checkAndPrintUsage')
+var fs = require("fs");
+const { checkAndPrintUsage } = require("./checkAndPrintUsage");
 
-const args = process.argv.slice(2)
-const settingsPath = "/Users/jake.pitman/Library/Application Support/Code/User/settings.json"
+const args = process.argv.slice(2);
+const settingsPath =
+  "/Users/jake.pitman/Library/Application Support/Code/User/settings.json";
 
 const argToEditorTheme = {
-  "azure": "Activate AZURE protocol",
-  "gr33n": "Cyberdyne 20XX"
+  azure: "Activate AZURE protocol",
+  gr33n: "Cyberdyne 20XX",
+  izzet: "Activate IZZET protocol"
+};
+
+themeFromArgs = checkAndPrintUsage(argToEditorTheme, args[0]);
+if (!themeFromArgs) {
+  console.log("      Error in change-vscode");
+  console.log(`      Args given: ${args}`);
+  return;
+} else {
+  newEditorTheme = argToEditorTheme[themeFromArgs];
 }
 
-themeFromArgs = checkAndPrintUsage(argToEditorTheme, args[0])
-if(! themeFromArgs){
-  console.log("      Error in change-vscode")
-  console.log(`      Args given: ${args}`)
-  return
-} else {
-  newEditorTheme = argToEditorTheme[themeFromArgs]
-} 
-
-fs.readFile(settingsPath, 'utf8', (err,data) => {
+fs.readFile(settingsPath, "utf8", (err, data) => {
   if (err) {
     return console.log(err);
   }
@@ -29,11 +31,11 @@ fs.readFile(settingsPath, 'utf8', (err,data) => {
     `"workbench.colorTheme": "${newEditorTheme}"`
   );
 
-  fs.writeFile(settingsPath, result, 'utf8', (err) => {
-     if (err) { 
-       return console.log(err) 
-     } else {
-       console.log(`▶️   VSCode editor theme changed to ${newEditorTheme}`)
-     }
+  fs.writeFile(settingsPath, result, "utf8", err => {
+    if (err) {
+      return console.log(err);
+    } else {
+      console.log(`▶️   VSCode editor theme changed to ${newEditorTheme}`);
+    }
   });
 });
