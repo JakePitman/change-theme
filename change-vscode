@@ -4,7 +4,7 @@ const { checkAndPrintUsage } = require("./checkAndPrintUsage");
 
 const args = process.argv.slice(2);
 const settingsPath =
-  "/Users/jake.pitman/Library/Application Support/Code/User/settings.json";
+  `${require('os').homedir()}/Library/Application Support/Code/User/settings.json`;
 
 const argToEditorTheme = {
   azure: "Activate AZURE protocol",

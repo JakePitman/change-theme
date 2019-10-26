@@ -3,7 +3,7 @@ var fs = require("fs");
 const { checkAndPrintUsage } = require("./checkAndPrintUsage");
 
 const args = process.argv.slice(2);
-const settingsPath = "/Users/jake.pitman/iTerm2/com.googlecode.iterm2.plist";
+const settingsPath = `${require('os').homedir()}/iTerm2/com.googlecode.iterm2.plist`;
 
 const argToEditorTheme = {
   azure: "257C710D-BE93-4B41-BF9D-52DA5A0C6FA1",
