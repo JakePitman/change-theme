@@ -37,6 +37,8 @@ check_arg "$1"
 
 ~/change-theme/change-vim "$1"
 
+~/change-theme/change-nvim "$1"
+
 # To use the change-iterm2 script:
 #  change to desired theme 
 #  check diff in ~/iTerm2/in com.googlecode.iterm2.plist to retrieve code
