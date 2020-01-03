@@ -9,7 +9,8 @@ const zshrcPath = `${require('os').homedir()}/.zshrc`;
 const argToZshColor = {
   azure: "MIDNIGHT_SUN",
   gr33n: "GR33N",
-  izzet: "IZZET"
+  izzet: "IZZET",
+  backfire: "BACKFIRE" 
 };
 
 themeFromArgs = checkAndPrintUsage(argToZshColor, args[0]);

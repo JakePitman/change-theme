@@ -8,7 +8,8 @@ const settingsPath = `${require('os').homedir()}/.vimrc`;
 const argToEditorTheme = {
   azure: "midnightsun",
   gr33n: "gr33n",
-  izzet: "izzet"
+  izzet: "izzet",
+  backfire: "backfire"
 };
 
 themeFromArgs = checkAndPrintUsage(argToEditorTheme, args[0]);

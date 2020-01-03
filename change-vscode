@@ -9,7 +9,8 @@ const settingsPath =
 const argToEditorTheme = {
   azure: "Activate AZURE protocol",
   gr33n: "Cyberdyne 20XX",
-  izzet: "Activate IZZET protocol"
+  izzet: "Activate IZZET protocol",
+  backfire: "Activate BACKFIRE protocol"
 };
 
 themeFromArgs = checkAndPrintUsage(argToEditorTheme, args[0]);
