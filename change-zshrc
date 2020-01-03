@@ -10,7 +10,8 @@ const argToZshColor = {
   azure: "MIDNIGHT_SUN",
   gr33n: "GR33N",
   izzet: "IZZET",
-  backfire: "BACKFIRE" 
+  backfire: "BACKFIRE",
+  lux: "LUX"
 };
 
 themeFromArgs = checkAndPrintUsage(argToZshColor, args[0]);

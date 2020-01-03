@@ -9,7 +9,8 @@ const argToEditorTheme = {
   azure: "midnightsun",
   gr33n: "gr33n",
   izzet: "izzet",
-  backfire: "backfire"
+  backfire: "backfire",
+  lux: "lux"
 };
 
 themeFromArgs = checkAndPrintUsage(argToEditorTheme, args[0]);
