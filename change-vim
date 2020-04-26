@@ -6,11 +6,11 @@ const args = process.argv.slice(2);
 const settingsPath = `${require('os').homedir()}/.vimrc`;
 
 const argToEditorTheme = {
-  azure: "midnightsun",
+  azur3: "midnightsun",
   gr33n: "gr33n",
-  izzet: "izzet",
-  backfire: "backfire",
-  lux: "lux"
+  izz3t: "izzet",
+  backfir3: "backfire",
+  d3ng3ki: "lux"
 };
 
 themeFromArgs = checkAndPrintUsage(argToEditorTheme, args[0]);

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 declare -a THEME_NAMES
-THEME_NAMES=(azure gr33n izzet backfire lux)
+THEME_NAMES=(azur3 gr33n izz3t backfir3 d3ng3ki)
 
 print_usage(){
   echo "USAGE:"

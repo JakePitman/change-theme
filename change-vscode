@@ -7,11 +7,11 @@ const settingsPath =
   `${require('os').homedir()}/Library/Application Support/Code/User/settings.json`;
 
 const argToEditorTheme = {
-  azure: "Activate AZURE protocol",
+  azur3: "Activate AZURE protocol",
   gr33n: "Activate GR33N protocol",
-  izzet: "Activate IZZET protocol",
-  backfire: "Activate BACKFIRE protocol",
-  lux: "Activate LUX protocol"
+  izz3t: "Activate IZZET protocol",
+  backfir3: "Activate BACKFIRE protocol",
+  d3ng3ki: "Activate LUX protocol"
 };
 
 themeFromArgs = checkAndPrintUsage(argToEditorTheme, args[0]);

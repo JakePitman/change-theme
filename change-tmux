@@ -6,11 +6,11 @@ const args = process.argv.slice(2);
 const settingsPath = `${require('os').homedir()}/.tmux.conf`;
 
 const argToTmuxTheme = {
-  azure: "81",
-  gr33n: "40",
-  izzet: "1",
-  backfire: "1",
-  lux: "11"
+  azur3: "81",
+  gr33n: "82",
+  izz3t: "1",
+  backfir3: "9",
+  d3ng3ki: "11"
 };
 
 themeFromArgs = checkAndPrintUsage(argToTmuxTheme, args[0]);

@@ -7,11 +7,11 @@ const zshrcPath = `${require('os').homedir()}/.zshrc`;
 
 //SOURCE OF TRUTH FOR ACCEPTABLE ARGS & POWERLINE THEME NAMES
 const argToZshColor = {
-  azure: "MIDNIGHT_SUN",
+  azur3: "MIDNIGHT_SUN",
   gr33n: "GR33N",
-  izzet: "IZZET",
-  backfire: "BACKFIRE",
-  lux: "LUX"
+  izz3t: "IZZET",
+  backfir3: "BACKFIRE",
+  d3ng3ki: "LUX"
 };
 
 themeFromArgs = checkAndPrintUsage(argToZshColor, args[0]);
