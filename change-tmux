@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+var fs = require("fs");
+const { checkAndPrintUsage } = require("./checkAndPrintUsage");
+
+const args = process.argv.slice(2);
+const settingsPath = `${require('os').homedir()}/.tmux.conf`;
+
+const argToTmuxTheme = {
+  azure: "81",
+  gr33n: "40",
+  izzet: "1",
+  backfire: "1",
+  lux: "11"
+};
+
+themeFromArgs = checkAndPrintUsage(argToTmuxTheme, args[0]);
+if (!themeFromArgs) {
+  console.log("      Error in change-tmux");
+  console.log(`      Args given: ${args}`);
+  return;
+} else {
+  newEditorTheme = argToTmuxTheme[themeFromArgs];
+}
+
+fs.readFile(settingsPath, "utf8", (err, data) => {
+  if (err) {
+    return console.log(err);
+  }
+
+  const result = data.replace(
+    /set -g status-bg colour.*/g,
+    `set -g status-bg colour${newEditorTheme}`
+  );
+
+  fs.writeFile(settingsPath, result, "utf8", err => {
+    if (err) {
+      return console.log(err);
+    } else {
+      console.log(`▶️   Tmux status bar changed to ${newEditorTheme}`);
+    }
+  });
+});
