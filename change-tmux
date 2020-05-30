@@ -30,7 +30,10 @@ fs.readFile(settingsPath, "utf8", (err, data) => {
   const result = data.replace(
     /set -g status-bg colour.*/g,
     `set -g status-bg colour${newEditorTheme}`
-  );
+  ).replace(
+    /set-option -g pane-active-border-style fg=colour.*/g,
+    `set-option -g pane-active-border-style fg=colour${newEditorTheme}`
+  )
 
   fs.writeFile(settingsPath, result, "utf8", err => {
     if (err) {
