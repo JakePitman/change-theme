@@ -31,15 +31,17 @@ check_arg(){
 
 check_arg "$1"
 
-~/change-theme/change-zshrc "$1"
+SCRIPT_DIR=$(dirname $0)
 
-~/change-theme/change-vscode "$1"
+"$SCRIPT_DIR"/change-zshrc "$1"
 
-~/change-theme/change-vim "$1"
+"$SCRIPT_DIR"/change-vscode "$1"
 
-~/change-theme/change-nvim "$1"
+"$SCRIPT_DIR"/change-vim "$1"
 
-~/change-theme/change-tmux "$1"
+"$SCRIPT_DIR"/change-nvim "$1"
+
+"$SCRIPT_DIR"/change-tmux "$1"
 tmux source-file ~/.tmux.conf
 
 # To use the change-iterm2 script:
