@@ -11,7 +11,8 @@ const argToZshColor = {
   gr33n: "GR33N",
   izz3t: "IZZET",
   backfir3: "BACKFIRE",
-  d3ng3ki: "LUX"
+  d3ng3ki: "LUX",
+  gr3y: "GR3Y"
 };
 
 themeFromArgs = checkAndPrintUsage(argToZshColor, args[0]);

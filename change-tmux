@@ -10,7 +10,8 @@ const argToTmuxTheme = {
   gr33n: "82",
   izz3t: "1",
   backfir3: "9",
-  d3ng3ki: "11"
+  d3ng3ki: "11",
+  gr3y: "15"
 };
 
 themeFromArgs = checkAndPrintUsage(argToTmuxTheme, args[0]);

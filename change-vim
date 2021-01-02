@@ -10,7 +10,8 @@ const argToEditorTheme = {
   gr33n: "gr33n",
   izz3t: "izzet",
   backfir3: "backfire",
-  d3ng3ki: "lux"
+  d3ng3ki: "lux",
+  gr3y: "midnightsun"
 };
 
 themeFromArgs = checkAndPrintUsage(argToEditorTheme, args[0]);
