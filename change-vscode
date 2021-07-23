@@ -12,7 +12,8 @@ const argToEditorTheme = {
   izz3t: "Activate IZZET protocol",
   backfir3: "Activate BACKFIRE protocol",
   d3ng3ki: "Activate LUX protocol",
-  gr3y: "gray-theme"
+  gr3y: "gray-theme",
+  lux: "lux-theme"
 };
 
 themeFromArgs = checkAndPrintUsage(argToEditorTheme, args[0]);

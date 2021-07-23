@@ -11,7 +11,8 @@ const argToEditorTheme = {
   izz3t: "izzet",
   backfir3: "backfire",
   d3ng3ki: "lux",
-  gr3y: "midnightsun"
+  gr3y: "midnightsun",
+  lux: "lux",
 };
 
 themeFromArgs = checkAndPrintUsage(argToEditorTheme, args[0]);
