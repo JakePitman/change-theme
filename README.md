@@ -1,3 +1,5 @@
+![demo](./change-theme-demo.gif)
+
 ## USAGE
 
 `./main.sh <THEME>`
